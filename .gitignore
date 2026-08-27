@@ -1,0 +1,26 @@
+# KiCad backups / autosave / caches
+*-backups/
+*.bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+_autosave-*
+fp-info-cache
+*.lck
+
+# KiCad ERC/DRC reports (optional)
+*.rpt
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Firmware build artifacts
+*.uf2
+*.hex
+*.bin
+.build/

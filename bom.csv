@@ -1,0 +1,13 @@
+ref,component,description,quantity,value,source
+SW1-SW67,Switches,MX mechanical switches,67,,grant
+-,Hotswap sockets,Kailh MX hotswap sockets,67,,
+D1-D67,Diode,1N4148 (SOD-27 through-hole),67,1N4148,
+U1,Controller,Raspberry Pi Pico,1,RP2040,
+ENC1,Rotary encoder,EC11 encoder + knob,1,EC11,
+LED1-LEDn,RGB,SK6812 MINI-E addressable LED,20,SK6812,
+OLED1,Display,0.96" SSD1306 OLED (I2C),1,SSD1306,
+-,Keycaps,MX keycap set,1,,grant
+-,Cable,USB-C cable,1,,grant
+-,Stabilizers,MX plate/PCB stabilizers,5,,
+-,Case,3D-printed case,1,,
+-,Plate,Switch plate,1,,
