@@ -1,5 +1,6 @@
 # KiCad backups / autosave / caches
 *-backups/
+.history/
 *.bak
 *.kicad_pcb-bak
 *.kicad_sch-bak
