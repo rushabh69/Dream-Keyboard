@@ -23,3 +23,28 @@ Parts / footprints to add (marbastlib for the keyboard parts):
 - **OLED** — 4-pin I2C header (GND/VCC/SCL/SDA) to GP27/GP26.
 
 Switches on the 19.05 mm grid. Run DRC, then export Gerbers + drill files to `gerbers/`.
+
+## Start from the layout (auto-place the matrix)
+
+`layout.kle.json` is the full 65% layout with each key labelled by its `row,col` matrix
+position. Instead of placing 67 keys by hand:
+
+`dream-keyboard.net` is a pre-generated KiCad netlist for the whole matrix — all 67
+switches + 67 diodes, wired to nets ROW0–ROW4 and COL0–COL14. It was generated from
+`layout.kle.json` with `kle2netlist` (switch = `PCM_marbastlib-mx:SW_MX_1u`,
+diode = `Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal`).
+
+Bring the matrix into a PCB:
+
+1. Install the **marbastlib** library so the switch footprint resolves.
+2. New KiCad project in this folder → open the **PCB Editor**.
+3. **File → Import → Netlist** → pick `dream-keyboard.net` → **Update PCB**. All 67
+   switch+diode pairs load with the matrix already connected (you'll see the ratsnest).
+4. Install the **kbplacer** plugin (Plugin and Content Manager) and run it with
+   `layout.kle.json` to auto-arrange the switches on the 19.05 mm grid.
+   - kbplacer: https://github.com/adamws/kbplacer
+5. Hand-add the Pico, encoder, OLED header, and SK6812 chain, and wire them to the GPIO in
+   the pin table above.
+6. Draw the outline, route, DRC, export Gerbers.
+
+The netlist covers only the key matrix — the Pico/encoder/OLED/RGB are added by hand.
